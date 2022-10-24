@@ -1,0 +1,18 @@
+kind: 
+ type1: Deployment
+ type2: Service
+labels:
+  name: grafana
+  app: grafana
+containername: grafana
+image: grafana/grafana
+service:
+  type: NodePort
+  labels: 
+    app: grafana
+    name: grafana
+  port: 3000
+  protocol: TCP
+  targetPort: 3000
+  selector:
+    app: grafana

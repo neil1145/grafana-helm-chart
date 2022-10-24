@@ -1,24 +1,24 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: {{.Values.kind.type1}}
 metadata:
   creationTimestamp: null
   labels:
-    app: grafana
-  name: grafana
+    app: {{.Values.labels.app}}
+  name: {{.Values.labels.name}}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: grafana
+      app: {{.Values.labels.name}}
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: grafana
+        app: {{.Values.labels.app}}
     spec:
       containers:
-      - image: grafana/grafana
-        name: grafana
+      - image: {{.Values.image}}
+        name: {{.Values.containername}}
         resources: {}
 status: {}
